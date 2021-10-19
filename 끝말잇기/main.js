@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>끝말잇기</title>
-</head>
-<body>
-    <div><span id = "order">1</span>번째 참가자</div>
-    <div>제시어: <span id = "word"></span></div>
-    <input type="text" id = "input" onchange="printName()"/>
-    <button>확인</button>
-    <input type="button" value = "페이지 새로 고침" onClick="window.location.reload()">
-    <div id = "result"></div>
-    
-    <script>
-        var number = Number(prompt("몇 명이 참가함?")); // number형식으로 바꿈
+
+    var number = Number(prompt("몇 명이 참가함?")); // number형식으로 바꿈
         var yesOrNo = confirm("참가 인원 " + number + "명 맞음?")
         var $button = document.querySelector('button');
         var $input = document.querySelector('input');
@@ -28,7 +11,7 @@
 
         var onClickButton = () => { // onClickButton이라는 함수 생성
             if(!word || word[word.length - 1] === newWord[0]){  //word에 값이 없으면
-                if (data.includes(word) == 1){
+                if (data.includes(word)){
                     alert("이거 햇자나");
                     $input.value = '';
                     $input.focus();
@@ -64,6 +47,3 @@
         for(var i = 0; i < data.length; i++){
             document.write(data[i]);
         }
-    </script>
-</body>
-</html>
