@@ -11,7 +11,7 @@
 
         var onClickButton = () => { // onClickButton이라는 함수 생성
             if(!word || word[word.length - 1] === newWord[0]){  //word에 값이 없으면
-                if (data.includes(word)){
+                if (data.includes(word) != true){ //
                     alert("이거 햇자나");
                     $input.value = '';
                     $input.focus();
