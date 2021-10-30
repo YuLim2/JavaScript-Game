@@ -17,7 +17,7 @@ var onClickNumber = (event) => {  //숫자를 눌렀을 때
 var onClickOperator = (op) => () => {   //연산을 눌렀을 때
     if(numOne){
         operator = op;  
-        $operater.value = op;   //operator.value == operator
+        $operator.value = op;   //operator.value == operator
     } else {
         alert('숫자를 입력하고 눌러라!!!');
     }
@@ -33,7 +33,9 @@ document.querySelector('#num-6').addEventListener('click', onClickNumber);
 document.querySelector('#num-7').addEventListener('click', onClickNumber);
 document.querySelector('#num-8').addEventListener('click', onClickNumber);
 document.querySelector('#num-9').addEventListener('click', onClickNumber);
-document.querySelector('#num-plus').addEventListener('click', onClickOperator('+'));
-document.querySelector('#num-minus').addEventListener('click', onClickOperator('-'));
-document.querySelector('#num-divide').addEventListener('click', onClickOperator('/'));
-document.querySelector('#num-multiply').addEventListener('click', onClickOperator('*'));
+document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
+document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
+document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
+document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
+document.querySelector('#calculate').addEventListener('click', () => {});
+document.querySelector('#clear').addEventListener('click', () => {});
