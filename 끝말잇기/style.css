@@ -1,3 +1,7 @@
 body { 
     text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */ 
+    background-color: rgb(142, 230, 102);
+}
+#container{
+    padding-top: 250px;
 }
