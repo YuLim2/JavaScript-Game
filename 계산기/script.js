@@ -36,8 +36,7 @@ var starOoperator = () => {
     if(!numTwo){    //아래로는 operator가 존재하는 상황, numTwo를 입력해야 하는 상황
         $result.value = ' ';
     }
-    if(numTwo){
-        $result.value = ' ';
+    if(numTwo){     //연이어 계산을 구현하려고 했지만 결과값에서 오류가 생김
         numOne = eval(numOne + operator + numTwo);
     }
     numTwo += event.target.textContent;
