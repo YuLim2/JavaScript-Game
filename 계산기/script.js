@@ -1,16 +1,46 @@
 var numOne = '';
 var operator = '';
 var numTwo = '';
-var button = [];
 var $operator = document.querySelector('#operator');
 var $result = document.querySelector('#result');
-
-var onClickNumber = (event) => {  //숫자를 눌렀을 때
-    if(operator){
-        numTwo += event.target.textContent;     //event.target.textContent 태그 안에 내용을 가져옴
+var starOoperator = () => {
+    if(numTwo){
+        $result.value = eval(numOne + operator + numTwo);   //eval함수는 보안성으로는 약함
+        // 위의 문장에서 eval함수를 쓰지 않을 때 방법
+        // switch(operator){
+        //     case '+':   //+는 문자열을 더하는 의미로도 적용되니 정수형 변환 후 계산
+        //         $result.value = parseInt(numOne) + parseInt(numTwo);
+        //         break;
+        //     case '-':
+        //          $result.value = numOne - numTwo;
+        //         break;
+        //     case '*':
+        //         $result.value = numOne * numTwo;
+        //         break;
+        //     case '/':
+        //         $result.value = numOne / numTwo;
+        //         break;
+        //     default:
+        //         break;
+        // }
     } else{
-        numOne += event.target.textContent;
+        alert("입력을 해야 계산을 하던가 하지...")
     }
+};
+    var onClickNumber = (event) => {  //숫자를 눌렀을 때, 중첩if문 사용 X
+    if(!operator){
+        numOne += event.target.textContent;     //event.target.textContent 태그 안에 내용을 가져옴
+        $result.value += event.target.textContent;
+        return;
+    }
+    if(!numTwo){    //아래로는 operator가 존재하는 상황, numTwo를 입력해야 하는 상황
+        $result.value = ' ';
+    }
+    if(numTwo){
+        $result.value = ' ';
+        numOne = eval(numOne + operator + numTwo);
+    }
+    numTwo += event.target.textContent;
     $result.value += event.target.textContent;
 };
 
@@ -18,7 +48,11 @@ var onClickOperator = (op) => () => {   //연산을 눌렀을 때
     if(numOne){
         operator = op;  
         $operator.value = op;   //operator.value == operator
-    } else {
+    } else if(numTwo){
+        operator = op;  
+        $operator.value = op;   //operator.value == operator
+    }
+    else {
         alert('숫자를 입력하고 눌러라!!!');
     }
 };
@@ -37,5 +71,11 @@ document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
 document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
 document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
 document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
-document.querySelector('#calculate').addEventListener('click', () => {});
-document.querySelector('#clear').addEventListener('click', () => {});
+document.querySelector('#calculate').addEventListener('click', starOoperator);
+document.querySelector('#clear').addEventListener('click', () => {  //초기화
+    numOne = ' ';
+    numTwo = ' ';
+    operator = ' ';
+    $operator.value = ' ';
+    $result.value = ' ';
+});
