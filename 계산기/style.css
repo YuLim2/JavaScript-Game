@@ -16,10 +16,11 @@ button {
 	margin: 5px 
 }
 body{
-	background-color: rgb(255, 255, 168);
+	background-color: rgb(89, 180, 255);
 }
 .operator{
 	text-align: center;
+	margin-top: 250px;
 }
 * { 
 	box-sizing: border-box 
