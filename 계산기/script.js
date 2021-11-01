@@ -77,4 +77,5 @@ document.querySelector('#clear').addEventListener('click', () => {  //초기화
     operator = ' ';
     $operator.value = ' ';
     $result.value = ' ';
+    //모든 값을 리셋했지만 클리어 버튼 누를 때 다시 연산이 안 됨
 });
