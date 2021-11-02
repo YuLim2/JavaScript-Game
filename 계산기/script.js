@@ -71,7 +71,7 @@ document.querySelector('#minus').addEventListener('click', onClickOperator('-'))
 document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
 document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
 document.querySelector('#calculate').addEventListener('click', starOoperator);
-document.querySelector('#clear').addEventListener('click', () => {  //초기화
+document.querySelector('#clear').addEventListener('click', () => {  //초기화    하지만 초기화 후 실행이 안 됨
     numOne = ' ';
     numTwo = ' ';
     operator = ' ';
